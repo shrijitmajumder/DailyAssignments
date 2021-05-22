@@ -14,16 +14,17 @@ public class MobileNumberUserDefined {
 		boolean result=Pattern.matches(regex, mobNo);//using character classes and quantifiers
 		try {
 			if(result==true)
-				throw new MobileNumberException("Valid Mobile Number");
+				System.out.println("Valid Mobile Number");
+			else if((mobNo.charAt(0)!='7' || mobNo.charAt(0)!='8' || mobNo.charAt(0)!='9') && mobNo.length()==10)
+				throw new MobileNumberException("It should begin with 7 or 8 or 9.");
 			else if(mobNo.length()<10)
 				throw new MobileNumberException("It is less than 10 digits");
 			else if(mobNo.length()>10)
 				throw new MobileNumberException("It is more than 10 digits");
 			else
-				throw new MobileNumberException("It is contains characters apart from digits");
+				throw new MobileNumberException("It contains characters apart from digits");
 		}catch(MobileNumberException e) {
-			System.out.println(e.getMessage());
+			System.out.println("Error Message : "+e.getMessage());
 		}
 	}
-
 }
