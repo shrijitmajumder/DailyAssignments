@@ -6,17 +6,17 @@ import java.util.Scanner;
 
 public class FlowerMain {
 	
+	static int max=100;
 	static HashSet<Flower> flowerList=new HashSet<Flower>();
 	static Iterator<Flower> fitr = flowerList.iterator();
-	static Flower flower[];
-	static int num=0;
+	static Flower flower[]=new Flower[max];
+	static int num;
 	public static void read() {
 		Scanner sm=new Scanner(System.in);
 		System.out.print("Enter the number of flowers you want to add : ");
-		int n=sm.nextInt();
-		num=num+n;
-		flower=new Flower[num];
-		for(int i=0;i<n;i++) {
+		num=sm.nextInt();
+		if(num<=100) {
+		for(int i=0;i<num;i++) {
 			System.out.println("Enter Details of Flower "+(i+1));
 			System.out.print("Enter flower id : ");
 			int fid=sm.nextInt();
@@ -29,6 +29,9 @@ public class FlowerMain {
 			float qty=sm.nextFloat();
 			flower[i]=new Flower(fid,fname,pricePerKg,qty);
 			flowerList.add(flower[i]);
+		}
+		}else {
+			System.out.println("Maximum Size Exceeded....");
 		}
 	}
 	
@@ -50,7 +53,7 @@ public class FlowerMain {
 		if(flowerList.size()<1) {
 			System.out.println("\nRemoval not possible since no flower is added...");
 		}else {
-			for(int i=0;i<flowerList.size();i++) {
+			for(int i=0;flower[i]!=null;i++) {
 				if(flower[i].getQty()<=0) {
 					flowerList.remove(flower[i]);
 				}
