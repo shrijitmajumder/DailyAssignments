@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class FlowerMain {
 	
-	static int max=100;
+	final static int max=100;
 	static HashSet<Flower> flowerList=new HashSet<Flower>();
 	static Iterator<Flower> fitr = flowerList.iterator();
 	static Flower flower[]=new Flower[max];
@@ -15,7 +15,7 @@ public class FlowerMain {
 		Scanner sm=new Scanner(System.in);
 		System.out.print("Enter the number of flowers you want to add : ");
 		num=sm.nextInt();
-		if(num<=100) {
+		if(flowerList.size()+num<=100) {
 		for(int i=0;i<num;i++) {
 			System.out.println("Enter Details of Flower "+(i+1));
 			System.out.print("Enter flower id : ");
@@ -30,8 +30,8 @@ public class FlowerMain {
 			flower[i]=new Flower(fid,fname,pricePerKg,qty);
 			flowerList.add(flower[i]);
 		}
-		}else {
-			System.out.println("Maximum Size Exceeded....");
+		}else if(flowerList.size()+num>100){
+			System.out.println("Maximum Size Exceeded....Cannot add new flowers");
 		}
 	}
 	
