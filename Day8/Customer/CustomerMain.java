@@ -162,7 +162,7 @@ public class CustomerMain {
 		int choice;
 		char choice1='y';
 		while(choice1!='n' && choice1!='N') {
-			System.out.print("\n1. Add Customers\n2. Display Customer\n\nEnter your choice : ");
+			System.out.print("\n1. Add Customers\n2. Display Customers\n\nEnter your choice : ");
 			choice=sm.nextInt();
 			switch(choice) {
 			case 1 : addList();
