@@ -81,6 +81,7 @@ public class FlowerMain {
 					remove();
 					
 				break;
+				default : System.out.println("Enter correct choice (1-3)...");
 			}
 			System.out.println("Do you want to continue?(y/n) ");
 			ch=sm.next().trim().charAt(0);
